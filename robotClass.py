@@ -3,7 +3,7 @@ import simConst
 
 class robot:
     #Inicializacao das variaveis
-    def __init__(self, xPosAtr, YPosAtr, thetaAtr, vLAtr, vRAtr, handleMotorLAtr, handleMotorRAtr, clientIDAtr):
+    def __init__(self, xPosAtr, YPosAtr, thetaAtr, vLAtr, vRAtr, nomeMotorL, nomeMotorR, clientIDAtr):
         print("Robo Criado")
 
         self.xPos = xPosAtr
@@ -11,9 +11,16 @@ class robot:
         self.theta = thetaAtr
         self.vL = vLAtr
         self.vR = vRAtr
-        self.handleMotorL = handleMotorLAtr
-        self.handleMotorR = handleMotorRAtr
+        resL, self.handleMotorL = sim.simxGetObjectHandle(clientIDAtr,nomeMotorL,sim.simx_opmode_blocking)
+        resR, self.handleMotorR = sim.simxGetObjectHandle(clientIDAtr,nomeMotorR,sim.simx_opmode_blocking)
         self.clientID = clientIDAtr
+
+        if(resL!=0):
+            print("Erro no nomeMotorL")
+
+        if(resR!=0):
+            print("Erro no nomeMotorR")
+
 
     #Passar as posicoes e orientação do robo para o setPos()
     def setPos(self, xPosAtr, YPosAtr, thetaAtr):

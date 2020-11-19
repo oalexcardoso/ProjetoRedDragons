@@ -17,13 +17,17 @@ def follow(angRobo, roboX, roboY, alvoX, alvoY, Kp, velocidade):
 	velRodaL = velocidade - varControle
 	velRodaR = velocidade + varControle
 
+	print("AngErro ", angE)
+
 	return velRodaL, velRodaR
 
 	#return as velocidades de cada roda
 
 #Como parametro do follow eu preciso do setPos() do robotClass e do setPos() da ballClass
-def stop():
+def stop(robot1, robot2, robot3):
 	#Comando para o robo ficar parado
-	robot.setVel(0,0)
+	robot1.setVel(0,0)
+	robot2.setVel(0,0)
+	robot3.setVel(0,0)
 
 	#return as velocidades de cada roda

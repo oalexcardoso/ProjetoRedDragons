@@ -47,4 +47,4 @@ def getPosRobot(clientID, ref, nomeRobo, marcadorJogador, marcadorTime):
 
     angRobo = rotacionarVetores(45,marcaJogador[0]-marcaTime[0],marcaJogador[1]-marcaTime[1])  
 
-    return 100*roboPos[0],100*roboPos[1],((angRobo*180)/num.pi)
+    return 100*roboPos[0],100*roboPos[1],angRobo
