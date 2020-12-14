@@ -136,7 +136,11 @@ strategy = strategy.strategy(clientID)
 #Chamar o vision e obter o setPose() do ballClass e setPose do robotClass()
 #Chamar o play() do strategy para excutar os comandos dos robos
 
+
+
 while(True):
+
+    tempo1 = time.time()
 
     #Pegar posicao da bola
     posBola = vision.getPosBall(clientID, vision.refPos(clientID))
@@ -147,7 +151,11 @@ while(True):
     #Pegar posicao do robo "Green"
     posRoboGreen = vision.getPosRobot(clientID, vision.refPos(clientID),'soccerRob_dynGreen','marcadorPosicaoGreen','marcadorEquipeGreen')
 
-    strategy.play(posRoboRed[1], posRoboRed[0], posRoboRed[2], posRoboPink[1], posRoboPink[0], posRoboPink[2], posRoboGreen[1], posRoboGreen[0], posRoboGreen[2], posBola[1], posBola[0], 0, 0, 0, 0, 0, 0)
+    strategy.play(posRoboRed[0], posRoboRed[1], posRoboRed[2], posRoboPink[0], posRoboPink[1], posRoboPink[2], posRoboGreen[0], posRoboGreen[1], posRoboGreen[2], posBola[0], posBola[1], 0, 0, 0, 0, 0, 0)
+
+    tempo2 = time.time()
+
+    print("Time ", tempo2-tempo1)
 
     print("Red:   ", posRoboRed)
     print("Pink:  ", posRoboPink)

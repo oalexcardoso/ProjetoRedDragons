@@ -8,16 +8,35 @@ import numpy as n
 def follow(angRobo, roboX, roboY, alvoX, alvoY, Kp, velocidade):
 	#Comandos para os robos seguirem a bola
 	#controlador proporcioanal
+
+	'''
+	print("angRobo ", angRobo)
+	print("roboX ", roboX)
+	print("roboY ", roboY)
+	print("alvoX ", alvoX)
+	print("alvoY ", alvoY)
+	print("Kp ", Kp)
+	print("velocidade ", velocidade)
+	'''
+
 	angAlvo = n.arctan2(alvoY-roboY,alvoX-roboX)
 
+	#print("DiferençaY ", alvoY-roboY)
+	#print("DiferençaX ", alvoX-roboX)
+
+	#print("AngBola ", (angAlvo*180)/n.pi)
+
 	angE = angAlvo - angRobo
+
+	print("ErroAngulo ", (angE*180)/n.pi)
 
 	varControle = Kp * angE
 
 	velRodaL = velocidade - varControle
 	velRodaR = velocidade + varControle
 
-	print("AngErro ", angE)
+	print("velRodaL", velRodaL)
+	print("velRodaR", velRodaR)
 
 	return velRodaL, velRodaR
 

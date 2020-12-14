@@ -9,3 +9,4 @@ class ball:
     def setPos(self, XPosAtr, YPosAtr):
         self.XPos = XPosAtr
         self.YPos = YPosAtr
+
